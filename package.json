@@ -1,7 +1,7 @@
 {
-  "name": "nodejs",
+  "name": "VMV",
   "version": "1.0.0",
-  "description": "",
+  "description": "VMV CRUD Webpage",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
