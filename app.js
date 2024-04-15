@@ -33,12 +33,24 @@ app.get('/service',(req,res)=> {
     res.render('ServiceNumber.ejs')
 })
 
+app.post('/service',async (req,res)=> {
+    const info = req.body
+    try {
+        const newClient = req.body
+        await Clients.create(newClient)
+    } catch(error) {
+        res.json(error)
+    }
+    res.render('ServiceNumber.ejs', { info })
+})
+
 app.get('/editClient/:id', clientsController.editClientByID)
 app.post('/editClient/:id',async (req,res) => {
     const info = req.body.information
     const phone = req.body.phone
     const name = req.body.name
     const money = req.body.money
+    console.log(res.locals)
     
     try {
         const client = await Clients.findById(req.params.id)

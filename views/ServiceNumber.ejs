@@ -26,7 +26,8 @@
 </style>
 
 
-<div class="container text-center">
+<div class="container text-center" styles="font-size:14px">
+    <a href="/" class="d-print-none"><button class="btn btn-primary d-print-none">Върни към начална страница</button></a>
     <h1>Поръчка за сервиз</h1>
     <% const a = Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000; %>
     <p class="fw-bold">Номер: <%= a %> </p>
@@ -37,10 +38,10 @@
     <div class="row">
 
         <div class="col">
-            От:
+            От: <%= locals.info.name %>
         </div>
         <div class="col">
-            Телефон:
+            Телефон: <%= locals.info.phone %>
         </div>
     </div>
     </br>

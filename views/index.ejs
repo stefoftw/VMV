@@ -5,7 +5,7 @@
                 <form action="/" method="post" class="text-light">
                     <div class="form-group">
                         <label>Проблем</label>
-                        <input type="text" class="form-control" name="information">
+                        <textarea type="text" class="form-control" name="information" rows="6"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Телефон</label>
@@ -20,21 +20,24 @@
                         <input type="number" step="any" min="0" class="form-control" name="money">
                     </div>
                     </br>
-                    <button type="submit" class="btn btn-primary">Запази</button>
+                    <button type="submit" class="btn btn-primary col-md-6">Запази</button>
+                    </br>
+                    </br>
+                    <button type="submit" formaction="/service" class="btn btn-success col-md-12">Сервизна
+                        Книжка</button>
                 </form>
                 </br>
                 <div class="row">
-                    <a href="/service" target="_blank"><button class=" col-md-12 btn btn-success">Сервизна
-                            Книжка</button></a>
                     </br>
                     </br>
                     <a href="/clients"><button class=" col-md-12 btn btn-success">База Данни</button></a>
+                    <a href="https://stantek.com"><button class=" col-md-12 btn btn-success">Stantek</button></a>
                 </div>
 
             </div>
             <div class="table-wrap col">
-                <table class="table table-secondary bg-gradient table-reponsive">
-                    <thead>
+                <table class="table table-light table-reponsive">
+                    <thead class="table-head table-secondary">
                         <tr>
                             <th scope="col">Дата</th>
                             <th scope="col">Име</th>
@@ -47,24 +50,23 @@
                     </thead>
                     <tbody>
                         <% clients.map((client)=> { %>
-                            <tr class="<%= client.fixed === true ? '' : '' %>">
-                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                            <tr class="<%= client.fixed === true ? 'text-success' : '' %>">
+                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
                                     <%= client.date %>
                                 </td>
-                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
-
+                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
                                     <%= client.name %>
                                 </td>
-                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
                                     <%= client.phone %>
                                 </td>
-                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
                                     <%= client.information %>
                                 </td>
-                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
                                     <%= client.money %>
                                 </td>
-                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
                                     <form action="/clients/<%= client.id %>" method="Patch">
                                         <button type="submit"
                                             class="<%= client.fixed  ? 'btn btn-secondary' : 'btn btn-success' %>">
@@ -73,7 +75,7 @@
                                     </form>
                                 </td>
 
-                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                                <td class="<%= client.fixed  ? '' : '' %>">
                                     <form action="/editClient/<%= client.id %>" method="Get">
                                         <input type="hidden" name="_method" value="PATCH" />
                                         <button type="submit" class="btn btn-grey">

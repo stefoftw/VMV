@@ -2,3 +2,18 @@
     height: 800px;
     overflow-y: auto;
   }
+
+  body {
+    font-weight: bold;
+    background-image: linear-gradient(to left, #10f979, #00ffbf, #00b7ff, #0096ff, #1271eb);
+    font-size:20px;
+  }
+
+  .button-gradient {
+    background-image: linear-gradient(to left, #11b3b3, #00a9c8, #009bdf, #008aed, #1271eb);
+  }
+
+  .table-head {
+    background-color: black;
+  }
+  
