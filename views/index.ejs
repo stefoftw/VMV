@@ -1,0 +1,95 @@
+<%- include("partials/header") %>
+    <div class="container bg-gradient">
+        <div class="row text-center">
+            <div class="form-wrapper col-md-2">
+                <form action="/" method="post" class="text-light">
+                    <div class="form-group">
+                        <label>Проблем</label>
+                        <input type="text" class="form-control" name="information">
+                    </div>
+                    <div class="form-group">
+                        <label>Телефон</label>
+                        <input type="text" class="form-control" required minlength="10" maxlength="10" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Име</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label>Сума</label>
+                        <input type="number" step="any" min="0" class="form-control" name="money">
+                    </div>
+                    </br>
+                    <button type="submit" class="btn btn-primary">Запази</button>
+                </form>
+                </br>
+                <div class="row">
+                    <a href="/service" target="_blank"><button class=" col-md-12 btn btn-success">Сервизна
+                            Книжка</button></a>
+                    </br>
+                    </br>
+                    <a href="/clients"><button class=" col-md-12 btn btn-success">База Данни</button></a>
+                </div>
+
+            </div>
+            <div class="table-wrap col">
+                <table class="table table-secondary bg-gradient table-reponsive">
+                    <thead>
+                        <tr>
+                            <th scope="col">Дата</th>
+                            <th scope="col">Име</th>
+                            <th scope="col">Телефон</th>
+                            <th scope="col">Информация</th>
+                            <th scope="col">Сума</th>
+                            <th scope="col">Предаден</th>
+                            <th scope="col">Промени</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% clients.map((client)=> { %>
+                            <tr class="<%= client.fixed === true ? '' : '' %>">
+                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                                    <%= client.date %>
+                                </td>
+                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+
+                                    <%= client.name %>
+                                </td>
+                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                                    <%= client.phone %>
+                                </td>
+                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                                    <%= client.information %>
+                                </td>
+                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                                    <%= client.money %>
+                                </td>
+                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                                    <form action="/clients/<%= client.id %>" method="Patch">
+                                        <button type="submit"
+                                            class="<%= client.fixed  ? 'btn btn-secondary' : 'btn btn-success' %>">
+                                            <%= client.fixed ? 'Върни' : 'Завърши' %>
+                                        </button>
+                                    </form>
+                                </td>
+
+                                <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                                    <form action="/editClient/<%= client.id %>" method="Get">
+                                        <input type="hidden" name="_method" value="PATCH" />
+                                        <button type="submit" class="btn btn-grey">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
+
+            <%- include("partials/footer") %>

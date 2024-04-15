@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VMV</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+    <script src="/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    div {
+        text-align: center;
+    }
+</style>
+
+
+<div class="container text-center">
+    <h1>Поръчка за сервиз</h1>
+    <% const a = Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000; %>
+    <p class="fw-bold">Номер: <%= a %> </p>
+    <div class="row text-center">
+        <h2 class="col-md-12">Проблем</h2>
+    </div>
+    </br>
+    <div class="row">
+
+        <div class="col">
+            От:
+        </div>
+        <div class="col">
+            Телефон:
+        </div>
+    </div>
+    </br>
+    <div class="row text-start">
+        <p class="col-md-12 text-start text-justify text-wrap">
+            <span class="fw-bold">За непотърсени в рамките на един месец компютърни конфигурации фирмата не носи
+                отговорност за тях:Фирма ВМВТЕХ ЕООД не носи отговорност при повреди от природни бедствия или
+                неправилна употрепа на отремонтираните части:</span>
+            ВМВТЕХ ЕООД инсталира софтуер и програми предоставени от клиента,освен в случаите,когато
+            софтуера е безплатен и достъпен за изтегляне от официалните сайтове на издателя или разработчика
+            като Mozilla Firefox , IzArk , Open/Libre Office , Google Chrome , Earth , uTorrent , Adobe Reader , Adobe
+            Flash player , Mega Kodec Pack , KM Player , Skype , CCleaner , SA Dictionary , Avast , AVG , Avira
+            Antivirus
+            и други напълно функционални и безплатни приложения.
+        </p>
+    </div>
+    </br>
+    <div class="row">
+
+        <div class="col">
+            Дата: <%= new Date().toLocaleString() %>
+        </div>
+        <div class="col">
+            Подпис/клиент/:____________
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <p class="fw-bold">Номер: <%= a %>
+    </div>
+    <div class="row text-start">
+        <p class="col-md-12 text-start text-justify">
+            <span class="fw-bold">За непотърсени в рамките на един месец компютърни конфигурации фирмата не носи
+                отговорност за тях:Фирма ВМВТЕХ ЕООД не носи отговорност при повреди от природни бедствия или
+                неправилна употрепа на отремонтираните части:</span>
+            ВМВТЕХ ЕООД инсталира софтуер и програми предоставени от клиента,освен в случаите,когато
+            софтуера е безплатен и достъпен за изтегляне от официалните сайтове на издателя или разработчика
+            като Mozilla Firefox , IzArk , Open/Libre Office , Google Chrome , Earth , uTorrent , Adobe Reader , Adobe
+            Flash player , Mega Kodec Pack , KM Player , Skype , CCleaner , SA Dictionary , Avast , AVG , Avira
+            Antivirus
+            и други напълно функционални и безплатни приложения.
+        </p>
+    </div>
+    </br>
+    <div class="row">
+
+        <div class="col">
+            Дата: <%= new Date().toLocaleString() %>
+        </div>
+        <div class="col">
+            Подпис/Печат/:____________
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    window.print();
+
+    </script>
