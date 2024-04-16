@@ -9,8 +9,8 @@
     font-size:20px;
   }
 
-  .button-gradient {
-    background-image: linear-gradient(to top left, #1b2afa, #00b7ff, #0096ff, #1271eb);
+  .table-row-color td {
+    background-color:#2f33ff
   }
 
 

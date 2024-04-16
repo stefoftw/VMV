@@ -23,9 +23,9 @@
                         <th scope="col">Предаден</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-primary">
                     <% clients.map((client)=> { %>
-                        <tr class="<%= client.fixed === true ? 'table-primary' : '' %>">
+                        <tr class="<%= client.fixed === true ? 'table-row-color' : '' %>">
                             <td>
                                 <%= client.date %>
                             </td>

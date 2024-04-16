@@ -45,14 +45,23 @@ app.post('/service',async (req,res)=> {
 })
 
 app.post('/search',async (req,res) => {
-    console.log(req.body)
+    //console.log(req.body)
     const phone = req.body.search
-    console.log(phone)
+    //console.log(phone)
     
     try {
-        const clientInfo = await Clients.find({ phone: phone })
-        console.log(clientInfo)
-        res.send(clientInfo)
+        const client = await Clients.find({ phone: phone })
+        console.log(client[0].phone)
+        let allInfo = [];
+        client.map((clientInfo) => {
+           allInfo.push('<h3>' + clientInfo.information + '</h3>')
+        })
+        res.send(`
+        <h1>За Номер: ${client[0].phone}</h1>
+        <h2>Брой записвания: ${allInfo.length}</h2>
+         ${allInfo} 
+        
+        `)
     } catch (error) {
         res.send(error)
     }

@@ -30,14 +30,14 @@
                 <div class="row">
                     </br>
                     </br>
-                    <a href="/clients"><button class=" col-md-12 btn btn-warning">База Данни</button></a>
-                    <a href="https://stantek.com"><button class=" col-md-12 btn btn-danger">Stantek</button></a>
+                    <a href="/clients"><button class="col-md-12 btn btn-warning">База Данни</button></a>
+                    <a href="https://stantek.com"><button class="col-md-12 btn btn-danger">Stantek</button></a>
                 </div>
 
             </div>
             <div class="table-wrap col">
                 <table class="table table-light table-reponsive">
-                    <thead class="table-head table-primary">
+                    <thead class="table-primary">
                         <tr>
                             <th scope="col">Дата</th>
                             <th scope="col">Име</th>
@@ -48,9 +48,9 @@
                             <th scope="col">Промени</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="table-primary">
                         <% clients.map((client)=> { %>
-                            <tr class="<%= client.fixed === true ? 'table-primary' : '' %>">
+                            <tr class="<%= client.fixed === true ? 'table-row-color' : '' %>">
                                 <td class="<%= client.fixed  ? '' : '' %>">
                                     <%= client.date %>
                                 </td>
@@ -69,7 +69,7 @@
                                 <td class="<%= client.fixed  ? '' : '' %>">
                                     <form action="/clients/<%= client.id %>" method="Patch">
                                         <button type="submit"
-                                            class="<%= client.fixed  ? 'btn btn-outline-primary' : 'btn btn-primary' %>">
+                                            class="<%= client.fixed  ? 'btn btn-outline-warning' : 'btn btn-primary' %>">
                                             <%= client.fixed ? 'Върни' : 'Завърши' %>
                                         </button>
                                     </form>
