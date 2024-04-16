@@ -24,6 +24,7 @@ Collection - clients
 
 1.1. Download Zip file from Repo and extract to your preferred path, navigate to that path using cli. 
 
+Direct Link: https://github.com/stefoftw/VMV/archive/refs/heads/dev.zip
 Example: C:\Users\User\Desktop\VMVTech and run the following:
 ```npm
 npm install

@@ -11,9 +11,9 @@
 
             </div>
         </div>
-        <div class="row text-center">
-            <table class="table table-secondary bg-gradient table-reponsive">
-                <thead>
+        <div class="row text-center table-reponsive">
+            <table class="table table-secondary">
+                <thead class="table-primary">
                     <tr>
                         <th scope="col">Дата</th>
                         <th scope="col">Име</th>
@@ -25,27 +25,27 @@
                 </thead>
                 <tbody>
                     <% clients.map((client)=> { %>
-                        <tr class="<%= client.fixed === true ? '' : '' %>">
-                            <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                        <tr class="<%= client.fixed === true ? 'table-primary' : '' %>">
+                            <td>
                                 <%= client.date %>
                             </td>
-                            <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                            <td>
 
                                 <%= client.name %>
                             </td>
-                            <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                            <td>
                                 <%= client.phone %>
                             </td>
-                            <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                            <td>
                                 <%= client.information %>
                             </td>
-                            <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                            <td>
                                 <%= client.money %>
                             </td>
-                            <td class="<%= client.fixed  ? 'bg-success' : '' %>">
+                            <td>
                                 <form action="/clients/<%= client.id %>" method="Patch">
                                     <button type="submit"
-                                        class="<%= client.fixed === true ? 'btn btn-secondary' : 'btn btn-success' %>">
+                                        class="<%= client.fixed === true ? 'btn btn-outline-primary' : 'btn btn-primary' %>">
                                         <%= client.fixed===true ? 'Върни' : 'Завърши' %>
                                     </button>
 
