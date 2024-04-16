@@ -5,7 +5,7 @@
 
   body {
     font-weight: bold;
-    background-image: linear-gradient(to left, #10f979, #00ffbf, #00b7ff, #0096ff, #1271eb);
+    background-image: linear-gradient(to top left, #1b2afa, #00b7ff, #0096ff, #1271eb);
     font-size:20px;
   }
 
@@ -16,4 +16,4 @@
   .table-head {
     background-color: black;
   }
-  
+  html {height: 100%;}

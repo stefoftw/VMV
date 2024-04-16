@@ -44,6 +44,21 @@ app.post('/service',async (req,res)=> {
     res.render('ServiceNumber.ejs', { info })
 })
 
+app.post('/search',async (req,res) => {
+    console.log(req.body)
+    const phone = req.body.search
+    console.log(phone)
+    
+    try {
+        const clientInfo = await Clients.find({ phone: phone })
+        console.log(clientInfo)
+        res.send(clientInfo)
+    } catch (error) {
+        res.send(error)
+    }
+    
+})
+
 app.get('/editClient/:id', clientsController.editClientByID)
 app.post('/editClient/:id',async (req,res) => {
     const info = req.body.information

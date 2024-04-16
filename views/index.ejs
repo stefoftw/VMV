@@ -37,7 +37,7 @@
             </div>
             <div class="table-wrap col">
                 <table class="table table-light table-reponsive">
-                    <thead class="table-head table-secondary">
+                    <thead class="table-head table-primary">
                         <tr>
                             <th scope="col">Дата</th>
                             <th scope="col">Име</th>
@@ -50,26 +50,26 @@
                     </thead>
                     <tbody>
                         <% clients.map((client)=> { %>
-                            <tr class="<%= client.fixed === true ? 'text-success' : '' %>">
-                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
+                            <tr class="<%= client.fixed === true ? 'table-primary' : '' %>">
+                                <td class="<%= client.fixed  ? '' : '' %>">
                                     <%= client.date %>
                                 </td>
-                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
+                                <td class="<%= client.fixed  ? '' : '' %>">
                                     <%= client.name %>
                                 </td>
-                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
+                                <td class="<%= client.fixed  ? '' : '' %>">
                                     <%= client.phone %>
                                 </td>
-                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
+                                <td class="<%= client.fixed  ? '' : '' %>">
                                     <%= client.information %>
                                 </td>
-                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
+                                <td class="<%= client.fixed  ? '' : '' %>">
                                     <%= client.money %>
                                 </td>
-                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
+                                <td class="<%= client.fixed  ? '' : '' %>">
                                     <form action="/clients/<%= client.id %>" method="Patch">
                                         <button type="submit"
-                                            class="<%= client.fixed  ? 'btn btn-secondary' : 'btn btn-success' %>">
+                                            class="<%= client.fixed  ? 'btn btn-outline-primary' : 'btn btn-primary' %>">
                                             <%= client.fixed ? 'Върни' : 'Завърши' %>
                                         </button>
                                     </form>
