@@ -1,5 +1,5 @@
 <%- include("partials/header") %>
-    <div class="container bg-gradient">
+    <div class="container">
         <div class="row text-center">
             <div class="form-wrapper col-md-2">
                 <form action="/" method="post" class="text-light">
@@ -77,7 +77,6 @@
 
                                 <td class="<%= client.fixed  ? '' : '' %>">
                                     <form action="/editClient/<%= client.id %>" method="Get">
-                                        <input type="hidden" name="_method" value="PATCH" />
                                         <button type="submit" class="btn btn-grey">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
