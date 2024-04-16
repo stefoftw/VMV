@@ -58,7 +58,7 @@
                                     <%= client.name %>
                                 </td>
                                 <td class="<%= client.fixed  ? '' : '' %>">
-                                    <%= client.phone %>
+                                    <a href="/search/<%= client.phone %>" class="link-dark link-underline link-underline-opacity-0"> <%= client.phone %></a>
                                 </td>
                                 <td class="<%= client.fixed  ? '' : '' %>">
                                     <%= client.information %>
