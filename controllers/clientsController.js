@@ -23,7 +23,7 @@ const getClientByID = async (req,res) => {
         else {
             const client = await Clients.findByIdAndUpdate(req.params.id, {fixed: true})
         }
-        res.status(201).redirect('/')
+        res.status(201).redirect('back')
     } catch(error) {
         res.send(error)
     }

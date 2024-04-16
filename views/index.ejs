@@ -30,14 +30,14 @@
                 <div class="row">
                     </br>
                     </br>
-                    <a href="/clients"><button class=" col-md-12 btn btn-success">База Данни</button></a>
-                    <a href="https://stantek.com"><button class=" col-md-12 btn btn-success">Stantek</button></a>
+                    <a href="/clients"><button class="col-md-12 btn btn-warning">База Данни</button></a>
+                    <a href="https://stantek.com"><button class="col-md-12 btn btn-danger">Stantek</button></a>
                 </div>
 
             </div>
             <div class="table-wrap col">
                 <table class="table table-light table-reponsive">
-                    <thead class="table-head table-secondary">
+                    <thead class="table-primary">
                         <tr>
                             <th scope="col">Дата</th>
                             <th scope="col">Име</th>
@@ -48,28 +48,28 @@
                             <th scope="col">Промени</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="table-primary">
                         <% clients.map((client)=> { %>
-                            <tr class="<%= client.fixed === true ? 'text-success' : '' %>">
-                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
+                            <tr class="<%= client.fixed === true ? 'table-row-color' : '' %>">
+                                <td class="<%= client.fixed  ? '' : '' %>">
                                     <%= client.date %>
                                 </td>
-                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
+                                <td class="<%= client.fixed  ? '' : '' %>">
                                     <%= client.name %>
                                 </td>
-                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
-                                    <%= client.phone %>
+                                <td class="<%= client.fixed  ? '' : '' %>">
+                                    <a href="/search/<%= client.phone %>" class="link-dark link-underline link-underline-opacity-0"> <%= client.phone %></a>
                                 </td>
-                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
+                                <td class="<%= client.fixed  ? '' : '' %>">
                                     <%= client.information %>
                                 </td>
-                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
+                                <td class="<%= client.fixed  ? '' : '' %>">
                                     <%= client.money %>
                                 </td>
-                                <td class="<%= client.fixed  ? '' : 'text-primary' %>">
+                                <td class="<%= client.fixed  ? '' : '' %>">
                                     <form action="/clients/<%= client.id %>" method="Patch">
                                         <button type="submit"
-                                            class="<%= client.fixed  ? 'btn btn-secondary' : 'btn btn-success' %>">
+                                            class="<%= client.fixed  ? 'btn btn-outline-warning' : 'btn btn-primary' %>">
                                             <%= client.fixed ? 'Върни' : 'Завърши' %>
                                         </button>
                                     </form>

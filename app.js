@@ -44,6 +44,55 @@ app.post('/service',async (req,res)=> {
     res.render('ServiceNumber.ejs', { info })
 })
 
+app.post('/search',async (req,res) => {
+    //console.log(req.body)
+    const phone = req.body.search.trim()
+    //console.log(phone)
+    
+    try {
+        const client = await Clients.find({ phone: phone })
+        console.log(client[0].phone)
+        let allInfo = [];
+        client.map((clientInfo) => {
+           allInfo.push('<h3>' + clientInfo.information + '</h3>')
+        })
+        res.send(`
+        <h1>За Номер: ${client[0].phone}</h1>
+        <h2>Брой записвания: ${allInfo.length}</h2>
+         ${allInfo} 
+        
+        `)
+    } catch (error) {
+        res.send(error)
+    }
+    
+})
+
+app.get('/search/:phone',async (req,res) => {
+    //console.log(req.body)
+    const phone = req.params.phone
+    //console.log(phone)
+    
+    try {
+        const client = await Clients.find({ phone: phone })
+        console.log(client[0].phone)
+        let allInfo = [];
+        client.map((clientInfo) => {
+           allInfo.push('<h3>' + clientInfo.information + '</h3>')
+        })
+        res.send(`
+        <h1>За Номер: ${client[0].phone}</h1>
+        <h2>Брой записвания: ${allInfo.length}</h2>
+        <hr>
+         ${allInfo} 
+        
+        `)
+    } catch (error) {
+        res.send(error)
+    }
+    
+})
+
 app.get('/editClient/:id', clientsController.editClientByID)
 app.post('/editClient/:id',async (req,res) => {
     const info = req.body.information
