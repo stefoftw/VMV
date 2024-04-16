@@ -15,7 +15,7 @@ const Clients = require('./models/clients')
 
 app.use(express.static('public'))
 app.use(
-    express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
+    express.static(path.join(__dirname, "./node_modules/bootstrap/dist/"))
   );
 
 //Sets view engine to EJS
@@ -28,9 +28,16 @@ app.post('/', clientsController.createClient)
 //app.patch('/clients/:id', clientsController.getClientByID)
 
 
-app.get('/service',(req,res)=> {
-    const text = 'text'
-    res.render('ServiceNumber.ejs')
+app.post('/service/:id',async (req,res)=> {
+
+    try {
+        const info = await Clients.findById(req.params.id)
+        res.render('ServiceNumber.ejs', {info} )
+    } catch (error) {
+        res.send(error)
+    }
+    
+    
 })
 
 app.post('/service',async (req,res)=> {
@@ -125,7 +132,7 @@ app.post('/editClient/:id',async (req,res) => {
 
 
 const userRouter = require('./routes/clients')
-const { ClientEncryption } = require('mongodb')
+
 
 // if we access home page with /users, we get access to 
 // users.js http methods in routes/users.js
