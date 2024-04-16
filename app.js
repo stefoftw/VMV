@@ -46,7 +46,7 @@ app.post('/service',async (req,res)=> {
 
 app.post('/search',async (req,res) => {
     //console.log(req.body)
-    const phone = req.body.search
+    const phone = req.body.search.trim()
     //console.log(phone)
     
     try {
@@ -83,6 +83,7 @@ app.get('/search/:phone',async (req,res) => {
         res.send(`
         <h1>За Номер: ${client[0].phone}</h1>
         <h2>Брой записвания: ${allInfo.length}</h2>
+        <hr>
          ${allInfo} 
         
         `)

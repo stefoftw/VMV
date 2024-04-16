@@ -3,13 +3,13 @@
         <div class="row text-center">
             <div class="row text-center">
                 <div class="col-md-4">
-    
+
                 </div>
                 <div class="col-md-4">
                     <a href="/"><button class="btn btn-info">Начална страница</button></a>
                 </div>
                 <div class="col-md-4">
-    
+
                 </div>
             </div>
             <div class="form-wrapper col-md-4">
@@ -17,15 +17,18 @@
 
             </div>
             <div class="form-wrapper col-md-4">
-                
-                <form enctype="application/json" action="/editClient/<%= editClient.id  %>" method="Post" class="text-light">
+
+                <form enctype="application/json" action="/editClient/<%= editClient.id  %>" method="Post"
+                    class="text-light">
                     <div class="form-group">
                         <label>Проблем</label>
-                        <input type="text" class="form-control" id="info"name="information" value="<%= editClient.information  %>">
+                        <input type="text" class="form-control" id="info" name="information"
+                            value="<%= editClient.information  %>">
                     </div>
                     <div class="form-group">
                         <label>Телефон</label>
-                        <input type="text" class="form-control" required minlength="10" maxlength="10" name="phone" value="<%= editClient.phone  %>">
+                        <input type="text" class="form-control" required minlength="10" maxlength="10" name="phone"
+                            value="<%= editClient.phone  %>">
                     </div>
                     <div class="form-group">
                         <label>Име</label>
@@ -33,16 +36,21 @@
                     </div>
                     <div class="form-group">
                         <label>Сума</label>
-                        <input type="number" step="any" min="0" class="form-control" name="money" value="<%= editClient.money  %>">
+                        <input type="number" step="any" min="0" class="form-control" name="money"
+                            value="<%= editClient.money  %>">
                     </div>
                     </br>
                     <input type="hidden" name="_method" value="PATCH" />
                     <button type="submit" class="btn btn-primary">Промени</button>
+                    </br>
+                    </br>
+                    <button type="submit" formaction="/service" class="btn btn-success col-md-12">Сервизна
+                        Книжка</button>
                 </form>
             </div>
             <div class="form-wrapper col-md-4">
 
-                
+
             </div>
         </div>
     </div>
