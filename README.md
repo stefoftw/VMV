@@ -13,7 +13,6 @@ Node,NPM,Git (optional) and MongoDB
 
 ####  Set MongoDB connection to mongodb://localhost:27017/
 Database - ClientsDB
-
 Collection - clients
 
 ## Local Installation
@@ -50,5 +49,13 @@ To run the project, run
 ```node
 npm start
 ```
+
+## Dependencies 
+
+    bootstrap: 5.3.3
+    ejs: 3.1.10
+    express: 4.19.2
+    mongoose: 8.3.1
+    nodemon": 3.1.0
 
 ## Enjoy!

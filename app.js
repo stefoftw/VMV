@@ -1,9 +1,17 @@
 const express = require('express')
+let os = require("os")
 const app = express()
 const path = require('path')
 const connectDB = require('./db/connect')
 const url = 'mongodb://localhost:27017/clientsDB'
 const clientsController = require('./controllers/clientsController')
+
+// For Fun - PC Specs
+
+console.log("CPU: " + os.cpus()[0].model);
+console.log("CPU Speed: " + os.cpus()[0].speed);
+
+console.log("Free Ram: " + os.freemem() / 1000000000)
 
 //Allows access to body of page (from forms)
 app.use(express.urlencoded({extended: true}))
@@ -61,11 +69,12 @@ app.post('/search',async (req,res) => {
         console.log(client[0].phone)
         let allInfo = [];
         client.map((clientInfo) => {
-           allInfo.push('<h3>' + clientInfo.information + '</h3>')
+           allInfo.push('<h3>' + clientInfo.date , clientInfo.information + '</h3>')
         })
+        
         res.send(`
         <h1>За Номер: ${client[0].phone}</h1>
-        <h2>Брой записвания: ${allInfo.length}</h2>
+        <h2>Брой записвания: ${allInfo.length / 2}</h2>
          ${allInfo} 
         
         `)
@@ -85,11 +94,11 @@ app.get('/search/:phone',async (req,res) => {
         console.log(client[0].phone)
         let allInfo = [];
         client.map((clientInfo) => {
-           allInfo.push('<h3>' + clientInfo.information + '</h3>')
+           allInfo.push('<h3>' + clientInfo.date ,  clientInfo.information + '</h3>')
         })
         res.send(`
         <h1>За Номер: ${client[0].phone}</h1>
-        <h2>Брой записвания: ${allInfo.length}</h2>
+        <h2>Брой записвания: ${allInfo.length / 2}</h2>
         <hr>
          ${allInfo} 
         
