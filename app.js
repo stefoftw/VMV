@@ -1,17 +1,10 @@
 const express = require('express')
-let os = require("os")
 const app = express()
 const path = require('path')
 const connectDB = require('./db/connect')
 const url = 'mongodb://localhost:27017/clientsDB'
 const clientsController = require('./controllers/clientsController')
 
-// For Fun - PC Specs
-
-console.log("CPU: " + os.cpus()[0].model);
-console.log("CPU Speed: " + os.cpus()[0].speed);
-
-console.log("Free Ram: " + os.freemem() / 1000000000)
 
 //Allows access to body of page (from forms)
 app.use(express.urlencoded({extended: true}))
