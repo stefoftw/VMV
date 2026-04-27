@@ -6,7 +6,8 @@ const clientSchema = new mongoose.Schema({
     },
     phone:{
         type: String,
-        required:[true, 'Phone Number is required']
+        required:[true, 'Phone Number is required'],
+        index: true // Add index for faster searches
     },
     information:{
         type: String
@@ -19,8 +20,9 @@ const clientSchema = new mongoose.Schema({
         default: false
     },
     date: {
-        type: String,
-        default: () => new Date().toLocaleString()
+        type: Date,
+        default: Date.now,
+        index: true // Add index for sorting
     }
 })
 

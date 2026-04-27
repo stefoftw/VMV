@@ -1,13 +1,21 @@
 const Clients = require('../models/clients')
 
-const getAllClients = async (req,res) => {
-    const clients = await Clients.find({}).sort({$natural:-1})
-    //console.log(clients)
-    res.status(200).render('allClients.ejs', { clients })
+const getAllClients = async (req, res) => {
+    const page = parseInt(req.query.page) || 1
+    const limit = 500
+    const skip = (page - 1) * limit
+
+    const [clients, total] = await Promise.all([
+        Clients.find({}).sort({ date: -1 }).skip(skip).limit(limit).lean(),
+        Clients.countDocuments()
+    ])
+
+    const totalPages = Math.ceil(total / limit)
+    res.status(200).render('allClients.ejs', { clients, page, totalPages })
 }
 
 const getLastClients = async (req,res) => {
-    const clients = await Clients.find({}).sort({$natural:-1}).limit(15)
+    const clients = await Clients.find({}).sort({ date: -1 }).limit(15).lean()
     //console.log(clients)
     let random = 'Hello there'
     res.status(200).render('index.ejs', { clients })

@@ -101,31 +101,12 @@ app.get('/search/:phone',async (req,res) => {
 })
 
 app.get('/editClient/:id', clientsController.editClientByID)
-app.post('/editClient/:id',async (req,res) => {
-    const info = req.body.information
-    const phone = req.body.phone
-    const name = req.body.name
-    const money = req.body.money
-    console.log(res.locals)
-    
+app.post('/editClient/:id', async (req, res) => {
+    const { information, phone, name, money } = req.body
     try {
-        const client = await Clients.findById(req.params.id)
-        if(client.information !== info) {
-            const client = await Clients.findByIdAndUpdate(req.params.id, {information: info})
-        }
-        if(client.phone !== phone) {
-            const client = await Clients.findByIdAndUpdate(req.params.id, {phone: phone})
-        }
-        if(client.name !== name) {
-            const client = await Clients.findByIdAndUpdate(req.params.id, {name: name})
-        }
-        if(client.money !== info) {
-            const client = await Clients.findByIdAndUpdate(req.params.id, {money: money})
-        }
-
-        
+        await Clients.findByIdAndUpdate(req.params.id, { information, phone, name, money })
         res.status(201).redirect('/')
-    } catch(error) {
+    } catch (error) {
         res.send(error)
     }
 })
